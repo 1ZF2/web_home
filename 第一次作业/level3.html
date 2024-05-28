@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 420px;
+            height: 470px;
+            background-color: rgba(220, 220, 220, 0.277);
+            position : absolute ;
+            top: 0;
+            left : 0;
+            right: 0;
+            bottom: 0 ;
+            margin : auto ;
+            text-align: center;
+            box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+        }
+        .choose{
+            text-align: center;
+            margin-top: 50px;
+            font-size: 27px;
+
+        }
+        .choose span:active{
+            font-weight: bold;
+        }
+        .choose span:hover{
+            font-weight: bold;
+        }
+        .in{
+            margin: 40px;
+        }
+        .in input{
+            margin: 10px;
+            width: 70%;
+            padding: 10px;
+        }
+        button{
+            background-color: cornflowerblue;
+            width: 60%;
+            margin: 10px;
+            padding: 10px;
+            color: white;
+            border: 1px solid cornflowerblue;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .footer img{
+            width: 36px;
+            height: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="choose">
+            <span>密码登录</span>|
+            <span>验证码登录</span>
+        </div>
+        <div class="in">
+            <input type="text" placeholder="手机号/昵称/邮箱"><br>
+            <input type="password" placeholder="密码">
+        </div>
+        <p><input type="radio" name="" id="">同意用户协议、隐私协议</p>
+        <button>登录</button>
+        <div class="c2">
+            <span>立即注册</span>|
+            <span>忘记密码</span>
+        </div>
+        <div class="footer">
+            <img src="../第一次作业/icon_QQ.png" alt="">
+            <img src="../第一次作业/微信.png" alt="">
+            <img src="../第一次作业/支付平台-支付宝.png" alt="">
+            <img src="../第一次作业/新浪-copy.png" alt="">
+            <img src="../第一次作业/百度.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
