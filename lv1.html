@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         Lv1 编写一个函数，用 promp 方法从网页输入一个字符串，并对字符
+// 串的ASCII码求和，再用 alert 输出。空格的ASCII码设置为0 示例： 输入：
+        // alert('请输入一段字符串');
+        let result = prompt('请输入一段字符串','');
+        let ascsum=0;
+        let sum;
+        for(let i=0;i<result.length;i++){
+            const charcode=result.charCodeAt(i);
+            if(result[i]==' '){
+                sum=0;
+            }
+            else{
+                sum=charcode
+            }
+            ascsum+=sum;
+        }
+        alert(ascsum);
+       
+
+    </script>
+</body>
+</html>

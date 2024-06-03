@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         Lv0 为QQ用户创建一个对象，（一个对象代表一个QQ用户），发挥想象力和
+// 创意，为对象设置尽可能多的属性和方法（至少10个） 
+        let qquser={
+            name:'小红',
+            firstname:'王',
+            age:18,
+            stature:166,
+            gender:'女',
+            singing: function () {
+                console.log('两只老虎，两只老虎，跑得快，跑得快......')
+            },
+            run:function(){
+                console.log('跑得快。。。')
+            },
+            sayhello(){
+                console.log('hello,I am xiaohong.');
+            }
+        };
+        qquser.love='苹果';
+        qquser.hate='梨子';
+        qquser.move=function(){
+            console.log('移动了距离')
+        }
+        qquser['crying']=function(){
+            console.log('开始哭啦')
+        }
+
+        console.log(qquser.hate)
+        console.log(qquser.name);
+        qquser.singing();
+        qquser.run();
+        qquser.move();
+        qquser.crying();
+        qquser.sayhello();
+
+    </script>
+</body>
+</html>
