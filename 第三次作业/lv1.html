@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let n=prompt("请输入n的大小:")
+        let sum=n=>{
+            s=1;
+            for(i=1;i<=n;i++){
+                s=s*i;
+            }
+            return s;
+        }
+        console.log(sum(n))
+        function sum2(n){
+            if (n==1){
+                return 1;
+            }
+            else{
+                return n*sum2(n-1);
+            }
+        }
+        console.log(sum2(n))
+    </script>
+</body>
+</html>

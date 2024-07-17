@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 浅拷贝会创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，
+        // 即如果修改name，原有结果不会改变；如果属性是内存地址，如address，拷贝的就是内存地址，而不是city本身所以修改就修改到原对象上了
+        
+        // 原始数据
+        const ob1={
+            name:'judi',
+            age:'20',
+            address:{
+                city:'chongqing',
+                area:'nanan',
+            },
+            hobbies:['reading','traveling'],
+        };
+        // 定义浅拷贝函数将对象的属性复制到新对象中
+        function showcopy(a){
+            let c={};
+            for(let i in a){
+                if(a.hasOwnProperty(i)){//使只检查出对象自身的属性，是就复制，不是就复制引用
+                    c[i]=a[i];
+                    console.log(c[i]);
+                }
+            }
+            // console.log(c);
+            return c;
+        }
+        // 函数进行浅拷贝
+        // let ob2=showcopy(ob1);
+        // 另一种方法
+        let ob2={};
+        Object.assign(ob2,ob1);
+        // 修改ob2中的某些值
+        ob2.name='lisa';//不修改ob1的name属性值
+        ob2.hobbies[2]='cooking';//ob1和ob2的hobbies都被修改
+        ob2.address.city='beijing';//ob1和ob2的hobbies都被修改
+        // 查看结果
+        console.log(ob1);
+        console.log(ob2);
+    </script>
+</body>
+</html>

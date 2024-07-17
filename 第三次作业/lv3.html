@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 深拷贝会拷贝所有的属性,并拷贝属性指向的动态分配的内存
+
+        // 原始数据
+        const ob1={
+            name:'judi',
+            age:'20',
+            address:{
+                city:'chongqing',
+                area:'nanan',
+            },
+            hobbies:['reading','traveling'],
+        };
+        // 深拷贝实现
+    //    let ob2=JSON.parse(JSON.stringify(ob1));//用JSON.stringify将对象转成JSON字符串，再用JSON.parse()把字符串解析成对象
+
+        // 使用递归函数深度克隆
+        // 检测数据类型,只检测数组，对象以及基本类型三种
+        function checktype(target){
+            return Object.prototype.toString.call(target).slice(8,-1);
+        }
+        // 实现深度克隆
+        function clone(target){
+            // 初始化result为最终克隆结果
+            let result;
+            let targettype=checktype(target);
+            if(targettype==='Object'){//进行严格类型匹配
+                result={};
+            }
+            else if(targettype==='Array'){
+                result=[];
+            }
+            else{
+                return target;
+            }
+            // 遍历目标数据
+            for(let i in target){
+                if (target.hasOwnProperty(i)) {// 确保是对象自身的属性
+                    // 获取遍历的值
+                    let j =target[i];
+                    if(checktype(j)==='Object'||checktype(j)==='Array'){//判断遍历的值是否依旧是数组或对象，是就递归继续获取值
+                        result[i]=clone(j);
+                    }
+                    else{
+                        result[i]=j;
+                    }
+                } 
+            }
+            return result;
+        }
+        let ob2=clone(ob1);
+
+
+        // 修改ob2中的某些值
+        ob2.name='lisa';
+        ob2.hobbies[2]='cooking';
+        ob2.address.city='beijing';
+        // 查看第一次修改结果
+        console.log(ob1);
+        console.log(ob2);
+        // 修改ob1的值
+        ob1.name='zhangsan';
+        ob1.hobbies[2]='running';
+        ob1.address.area='hh'
+        // 查看第二次修改结果
+        console.log(ob1);
+        console.log(ob2);
+        // 都只会修改自己的内容
+    </script>
+</body>
+</html>
