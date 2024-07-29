@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var funcs = []
+        // 需要修改的函数
+        for (let i = 0; i < 10; i++) {
+            funcs.push(function() { 
+                console.log(i) 
+            })
+        }
+        // 使用了ES6 的 let 关键字，它具有块级作用域的特性，每一个都输出
+
+        // let funcsES5=[]
+        // //示例 使用es5的闭包的概念
+        // for (let i = 0; i < 10; i++) {
+        //     funcsES5.push((function(value) {
+        //         return function() {
+        //             console.log(value)
+        //         }
+        //     }(i)))
+        // }
+        funcs.forEach(function(func) {
+            func()
+        })
+
+
+    </script>
+</body>
+</html>
