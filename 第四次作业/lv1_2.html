@@ -16,12 +16,13 @@
                 console.log('person name='+this.name+',age='+this.age);
             }
         }
+        // 继承person类
         class Student extends Person{
             constructor(name,age,subject){
-                super(name,age);
+                super(name,age);//super继承
                 if(subject.length<=3){
                     console.log("输入的科目最好大于3，请重新输入");
-                }
+                }//提示，但不影响少于3个科目时的显示
                 this.subject=subject;
             }
             speak(){
