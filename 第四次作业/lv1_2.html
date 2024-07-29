@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Person{
+            constructor(name,age){
+                this.name=name;
+                this.age=age;
+            }
+            speak(){
+                console.log('person name='+this.name+',age='+this.age);
+            }
+        }
+        class Student extends Person{
+            constructor(name,age,subject){
+                super(name,age);
+                if(subject.length<=3){
+                    console.log("输入的科目最好大于3，请重新输入");
+                }
+                this.subject=subject;
+            }
+            speak(){
+                super.speak();
+                console.log('subject='+this.subject);
+            }
+        }
+        const student = new Student('jack', 17, ['Math', 'Science', 'English', 'History']);
+        student.speak();
+    </script>
+</body>
+</html>

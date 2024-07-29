@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function cycleLights() {
+            while (true) {
+                console.log('red');
+                await delay(3000); // 红灯亮 3 秒
+
+                console.log('green');
+                await delay(1000); // 绿灯亮 1 秒
+
+                console.log('yellow');
+                await delay(2000); // 黄灯亮 2 秒
+            }
+        }
+
+        // 启动灯光循环
+        cycleLights();
+
+    </script>
+</body>
+</html>
