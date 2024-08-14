@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(() => {
+            console.log('setTimeout start');//5，在主线程上的同步代码执行完后，setTimeout的回调函数开始执行，因此得到结果
+            new Promise((resolve) => {
+                console.log('promise1 start');//6，在setTimeout的回调函数中，创建的Promise的构造函数中的同步代码开始运行，输出结果
+                resolve();
+            }).then(() => {
+                console.log('promise1 end');//8，promise的then回调也被安排在微任务队列中，setTimeout 的回
+                // 调函数同步代码执行完后微任务队列中的任务会被执行，因此可以得到输出
+            })
+            console.log('setTimeout end');//7，setTimeout的回调函数中的同步代码执行完毕。
+        }, 0);
+        function promise2() {
+            return new Promise((resolve) => {
+                console.log('promise2');//2，调用了这个主函数，输出结果
+                resolve();
+            })
+        }
+        async function async1() {
+            console.log('async1 start');//1,调用了这个主函数执行第一个输出
+            await promise2();//调用promise2函数
+            console.log('async1 end');//4，promise2的then回调到微任务中去排队了，
+            // async1继续执行直到它遇到await，然后async1的then回调会在微任务队列中排队。
+            // async1的then回调会在主线程的同步代码之后执行。而同步代码执行完了，所以这一句执行了输出了结果。
+        }
+        async1();//启动async1函数
+        console.log('script end');//3，主线程同步代码执行完，输出结果
+    </script>
+</body>
+</html>
