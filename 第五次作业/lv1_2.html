@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="circle1" class="circle"></div>
+    <div id="circle2" class="circle"></div>
+    <div id="circle3" class="circle"></div>
+
+    <script>
+        const circle1 = document.getElementById('circle1');
+        const circle2 = document.getElementById('circle2');
+        const circle3 = document.getElementById('circle3');
+
+        function showCircle(circle, x, y, color) {
+            circle.style.left = `${50 + x * 20}px`; // 根据位置调整X坐标
+            circle.style.top = `${50 + y * 20}px`;  // 根据位置调整Y坐标
+            circle.style.backgroundColor = color;
+            circle.style.display = 'block';
+        }
+
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        // 使用Promise链式回调实现动画
+        wait(0)
+            .then(() => {
+                showCircle(circle1, 0, 0, 'red');
+                return wait(1000); // 等待1秒
+            })
+            .then(() => {
+                showCircle(circle2, -0.5, 1, 'blue');
+                return wait(1000); // 等待1秒
+            })
+            .then(() => {
+                showCircle(circle3, 0.2, 2, 'grey');
+            });
+
+    </script>
+</body>
+</html>

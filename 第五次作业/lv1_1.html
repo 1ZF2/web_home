@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .circle {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="circle1" class="circle"></div>
+    <div id="circle2" class="circle" style="display: none;"></div>
+    <div id="circle3" class="circle" style="display: none;"></div>
+
+    <script>
+        const circle1 = document.getElementById('circle1');
+        const circle2 = document.getElementById('circle2');
+        const circle3 = document.getElementById('circle3');
+
+        function showCircle(circle, x, y, color) {
+            circle.style.left = `${50 + x * 20}px`; // 根据位置调整X坐标
+            circle.style.top = `${50 + y * 20}px`;  // 根据位置调整Y坐标
+            circle.style.backgroundColor = color;
+            circle.style.display = 'block';
+        }
+
+
+        // 第一秒显示第一个圆点
+        setTimeout(() => {
+            showCircle(circle1, 0, 0,'red');
+        }, 0);
+        // 第二秒显示第二个圆点
+        setTimeout(() => {
+            showCircle(circle2, -0.5,1,'blue');
+        }, 1000);
+
+        // 第三秒显示第三个圆点
+        setTimeout(() => {
+            showCircle(circle3, 0.2, 2,'grey');
+        }, 2000);
+
+    </script>
+</body>
+</html>
